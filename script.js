@@ -1,4 +1,12 @@
 const inp = document.getElementById('search-inp');
+const searchBtn = document.getElementById('search-btn');
+const temperature = document.getElementById('temp');
+const city = document.getElementById('city');
+const wind = document.getElementById('wind');
+const humidity = document.getElementById('humidity');
+
+
+
 async function geocoords(city) {
     const geoResponse = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=en&format=json`);
     const geoData = await geoResponse.json();
@@ -25,6 +33,5 @@ async function getWeather(city) {
         coords.latitude
     )
 
-    console.log(data);
+    
 }
-getWeather('Delhi');
