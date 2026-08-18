@@ -59,6 +59,7 @@ async function getWeather(city) {
     catch(error){
         alert('Enter valid city name DAWG!');
         console.error(error);
+        inp.value = '';
     }   
 
 };
