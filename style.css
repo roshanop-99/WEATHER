@@ -64,6 +64,11 @@ body{
     font-weight: 600;
 }
 
+#country{
+    text-align: center;
+    font-weight: 400;
+}
+
 #clouds{
     height: 170px;
 }
