@@ -6,6 +6,7 @@ const countryElement = document.getElementById('country');
 const wind = document.getElementById('wind-p');
 const humid = document.getElementById('humidity-p');
 const cloudsImg = document.getElementById('clouds');
+const errorBox = document.querySelector('.error-box');
 
 
 
@@ -57,7 +58,10 @@ async function getWeather(city) {
         cloudsImg.setAttribute('src' , `${imgData}`);
     }
     catch(error){
-        alert('Enter valid city name DAWG!');
+        errorBox.classList.add('active');
+        setTimeout(()=>{
+            errorBox.classList.remove('active');
+        },3000);
         console.error(error);
         inp.value = '';
     }   
