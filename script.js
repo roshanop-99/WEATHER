@@ -31,26 +31,37 @@ async function weather(longitude,latitude) {
     }   
 };
 async function getWeather(city) {
-    const coords = await geocoords(city);
+    if (!city.trim()) {
+        alert('Please enter a city name.');
+        return;
+    }
+    
+    try{
+        const coords = await geocoords(city);
 
-    inp.value = '';
+        inp.value = '';
 
-    const data = await weather(
+        const data = await weather(
         coords.longitude,
         coords.latitude
-    )
-    console.log(data);
+        )
+        console.log(data);
 
-    cityElement.textContent = coords.name;
-    countryElement.textContent = coords.country;
-    temperature.textContent = `${data.temp}°C`;
-    humid.textContent = `${data.humidity}%`;
-    wind.textContent = `${data.windspeed} km/h`;
+        cityElement.textContent = coords.name;
+        countryElement.textContent = coords.country;
+        temperature.textContent = `${data.temp}°C`;
+        humid.textContent = `${data.humidity}%`;
+        wind.textContent = `${data.windspeed} km/h`;
 
-    const imgData = imgChanger(data.code);
-    cloudsImg.setAttribute('src' , `${imgData}`);
+        const imgData = imgChanger(data.code);
+        cloudsImg.setAttribute('src' , `${imgData}`);
+    }
+    catch(error){
+        alert('Enter valid city name DAWG!');
+        console.error(error);
+    }   
 
-}
+};
 
 function imgChanger(code){
    switch (true) {
@@ -75,7 +86,7 @@ function imgChanger(code){
         default:
             return './images/clouds.png';
     }
-}
+};
 
 
 
