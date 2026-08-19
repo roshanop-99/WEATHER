@@ -150,3 +150,10 @@ body{
     background-size: cover;
   }
 }
+@media screen and (max-width: 412px) {
+  body {
+    background-image: url('images/WEATHER-BG-PHONE.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
