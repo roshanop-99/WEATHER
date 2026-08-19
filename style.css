@@ -142,3 +142,11 @@ body{
     color: #2d2d30;
     text-align: center;
 }
+
+@media screen and (min-width: 400px) and (max-width: 957px) {
+  body {
+    background-image: url('images/WEATHER-BG-PHONE.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
